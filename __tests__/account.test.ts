@@ -1,11 +1,21 @@
 import { Account } from "../src/account";
 
 describe('Account', () => {
-    it('should not throw when making a deposit', () => {
+    it('should not throw when making a positive deposit', () => {
         const account = new Account();
 
         expect(() => {
             account.deposit(1);
         }).not.toThrow();
+    });
+});
+
+describe('Account', () => {
+    it('should throw when making a negative deposit', () => {
+        const account = new Account();
+
+        expect(() => {
+            account.deposit(-1);
+        }).toThrow();
     });
 });
