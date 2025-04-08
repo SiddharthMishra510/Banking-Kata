@@ -1,0 +1,15 @@
+# Node dependencies
+node_modules/
+
+# TypeScript build output
+dist/
+
+# IntelliJ/WebStorm settings
+.idea/
+*.iml
+
+# Logs
+*.log
+
+# Env files
+.env
