@@ -7,11 +7,13 @@ export class Account {
     if (number < 0) {
       throw new Error('Deposit must be greater than 0');
     }
-    this.transaction = new Transaction(number);
+    this.transaction = new Transaction(
+      number,
+      new Intl.DateTimeFormat('de-DE').format(new Date())
+    );
   }
 
   printStatement(): string {
-    const dateStr = new Intl.DateTimeFormat('de-DE').format(new Date());
-    return `${dateStr} | +${this.transaction.amount} | ${this.transaction.amount}`;
+    return `${this.transaction.date} | +${this.transaction.amount} | ${this.transaction.amount}`;
   }
 }
