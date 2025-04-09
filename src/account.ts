@@ -6,6 +6,7 @@ export class Account {
   }
 
   printStatement(): string {
-    return '10/04/2025 | +1 | 1';
+    const dateStr = new Intl.DateTimeFormat('de-DE').format(new Date());
+    return `${dateStr} | +1 | 1`;
   }
 }

@@ -15,10 +15,12 @@ describe('Account', () => {
     }).toThrow();
   });
 
-  it('should print correct statement after deposit of 1 unit on 10/04/2025', () => {
+  it('should print correct statement after deposit of 1 unit on a given date', () => {
     const account = new Account();
-
+    const mockDate = new Date('4.10.2025');
+    jest.useFakeTimers().setSystemTime(mockDate);
     account.deposit(1);
-    expect(account.printStatement()).toBe('10/04/2025 | +1 | 1');
+    expect(account.printStatement()).toBe('10.4.2025 | +1 | 1');
+    jest.useRealTimers();
   });
 });
