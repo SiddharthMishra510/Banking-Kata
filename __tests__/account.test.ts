@@ -23,4 +23,13 @@ describe('Account', () => {
     expect(account.printStatement()).toBe('10.4.2025 | +1 | 1');
     jest.useRealTimers();
   });
+
+  it('should print correct statement after deposit of 5 units on a given date', () => {
+    const account = new Account();
+    const mockDate = new Date('4.10.2025');
+    jest.useFakeTimers().setSystemTime(mockDate);
+    account.deposit(5);
+    expect(account.printStatement()).toBe('10.4.2025 | +5 | 5');
+    jest.useRealTimers();
+  });
 });
